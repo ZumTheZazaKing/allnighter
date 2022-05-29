@@ -1,5 +1,5 @@
 import { StyleSheet } from "aphrodite";
-import RoomBackView from '../images/roombackview.jpeg'
+import RoomBackView from '../images/roombackview.jpg'
 import RoomMainView from '../images/roommainview.jpg'
 
 export const GameStyles = StyleSheet.create({
