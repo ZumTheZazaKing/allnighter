@@ -31,7 +31,7 @@ export const MainMenu = () => {
         const confirmation = window.confirm(`Continue from Night ${savedGame.night}?`);
         if(!confirmation)return;
 
-        if(savedGame.night === "1"){
+        if(savedGame.night === 1){
             navigate("/intro")
         }else{
             navigate("/game")

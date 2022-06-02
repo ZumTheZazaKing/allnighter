@@ -61,5 +61,8 @@ export const GameStyles = StyleSheet.create({
         outline:"none",
         cursor:"pointer",
         backgroundColor:"lightgrey"
+    },
+    contentHide:{
+        display: 'none',
     }
 })
