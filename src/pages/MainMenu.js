@@ -15,13 +15,13 @@ export const MainMenu = () => {
 
         navigate("/intro")
         let newGameData = {
-            night:"1",
+            night:1,
             failed:false,
-            math:"0",
-            science:"0",
-            english:"0",
-            history:"0",
-            geography:"0",
+            math:0,
+            science:0,
+            english:0,
+            history:0,
+            geography:0,
         }
         setSavedGame(newGameData);
         localStorage.setItem("savedGame", JSON.stringify(newGameData));

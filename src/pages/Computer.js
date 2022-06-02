@@ -6,24 +6,24 @@ import { Context } from "../Context";
 export default function Computer(props){
 
     const { savedGame } = useContext(Context);
-    const { enteredComputer } = props;
+    const { enteredComputer, time } = props;
     const [subject, setSubject] = useState(null)
 
     useEffect(() => {
         switch(savedGame.night){
-            case "1":
+            case 1:
                 setSubject("Math")
                 break;
-            case "2":
+            case 2:
                 setSubject("Science")
                 break;
-            case "3":
+            case 3:
                 setSubject("English")
                 break;
-            case "4":
+            case 4:
                 setSubject("History")
                 break;
-            case "5":
+            case 5:
                 setSubject("Geography")
                 break;
             default:return;
@@ -33,7 +33,7 @@ export default function Computer(props){
     return(
         <div className={css([GameStyles.computer, enteredComputer ? "" : GameStyles.computerHide])}>
             <div className={css(GameStyles.computerTopbar)}>
-                <h4>12:00 AM</h4>
+                <h4>{time === 0 ? "12" : time}:00 AM</h4>
                 {savedGame.night === "1" ? <p>Hold Q to look BEHIND YOU, Press R to Exit Computer</p> : ""}
             </div>
 

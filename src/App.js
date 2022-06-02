@@ -7,6 +7,7 @@ import SmallScreen from './pages/SmallScreen';
 const MainMenu = lazy(() => import('./pages/MainMenu').then(module => ({ default: module.MainMenu })));
 const Introduction = lazy(() => import('./pages/Introduction').then(module => ({ default: module.Introduction })));
 const Game = lazy(() => import('./pages/Game').then(module => ({ default: module.Game })));
+const NightComplete = lazy(() => import('./pages/NightComplete').then(module => ({ default: module.NightComplete })));
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
               <Route path="/" element={<MainMenu />} />
               <Route path="/intro" element={<Introduction />} />
               <Route path="/game" element={<Game />} />
+              <Route path="/nightcomplete" element={<NightComplete />} />
 
             </Routes>
           </Suspense>

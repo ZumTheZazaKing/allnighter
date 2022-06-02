@@ -28,7 +28,8 @@ export const GameStyles = StyleSheet.create({
         zIndex:"1"
     },
     computerHide:{
-        zIndex:"-1"
+        zIndex:"-1",
+        opacity:"0"
     },
     computer:{
         position: "fixed",
