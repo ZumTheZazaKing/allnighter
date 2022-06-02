@@ -1,0 +1,230 @@
+{
+    "math":{
+        "question1":{
+            "question":"What is the value of the following expression?\n\n(2+3)*(4+5)",
+            "answer":45,
+            "choices":[45,50,55,60]
+        },
+        "question2":{
+            "question":"What is the value of the following expression?\n\n(2+3)*(4+5)*(6+7)",
+            "answer":585,
+            "choices":[1230,585,728,106]
+        },
+        "question3":{"question":"What is the value of the following expression?\n\n(2+3)*(4+5)*(6+7)*(8+9)",
+            "answer":9945,
+            "choices":[10290,5001,9945,1890]
+        },
+        "question4":{"question":"What is the value of the following expression?\n\n(2+3)*(4+5)*(6+7)*(8+9)*(10+11)",
+            "answer":208845,
+            "choices":[114750,115670,218867,208845]
+        },
+        "question5":{"question":"What is the value of the following expression?\n\n1+1",
+            "answer":2,
+            "choices":[3,2,4,5]
+        },
+        "question6":{"question":"What is the value of the following expression?\n\n1/2 * 2",
+            "answer":1,
+            "choices":[3,2,1,4]
+        },
+        "question7":{"question":"What is the value of the following expression when rounded up?\n\nπ * 2 * 2",
+            "answer":13,
+            "choices":[12,13,8,6]
+        },
+        "question8":{"question":"What is the value of the following expression?\n\nHow many sides does a square have?",
+            "answer":4,
+            "choices":[3,4,5,6]
+        },
+        "question9":{"question":"What is the value of the following expression?\n\nHow many sides does a triangle have?",
+            "answer":3,
+            "choices":[4,6,5,3]
+        },
+        "question10":{"question":"What is the value of the following expression?\n\nHow many sides does a pentagon have?",
+            "answer":5,
+            "choices":[5,4,6,3]
+        }
+    },
+    "science":{
+        "question1":{
+            "question":"The center of the earth is very hot",
+            "answer":"True",
+            "choices":["True","False"]
+        },
+        "question2":{
+            "question":"The continents have been moving their location for millions of years and will continue to move",
+            "answer":"True",
+            "choices":["True","False"]
+        },
+        "question3":{"question":"Does the Earth go around the Sun, or does the Sun go around the Earth?",
+            "answer":"The Earth goes around the Sun",
+            "choices":["The Earth goes around the Sun","The Sun goes around the Earth"]
+        },
+        "question4":{"question":"True or false? All radioactivity is man-made",
+            "answer":"False",
+            "choices":["True","False"]
+        },
+        "question5":{"question":"Electrons are smaller than atoms",
+            "answer":"True",
+            "choices":["True","False"]
+        },
+        "question6":{"question":"Lasers work by focusing sound waves",
+            "answer":"False",
+            "choices":["True","False"]
+        },
+        "question7":{"question":"The universe began with a huge explosion",
+            "answer":"True",
+            "choices":["True","False"]
+        },
+        "question8":{"question":"It is the father's gene that decides whether the baby is a boy or a girl",
+            "answer":"True",
+            "choices":["True","False"]
+        },
+        "question9":{
+            "question":"Antibiotics kill viruses as well as bacteria",
+            "answer":"False",
+            "choices":["True","False"]
+        },
+        "question10":{
+            "question":"The Earth is the only planet that has a moon",
+            "answer":"False",
+            "choices":["True","False"]
+        }
+    },
+    "english":{
+        "question1":{
+            "question":"What is the correct spelling of the word 'hello'?",
+            "answer":"Hello",
+            "choices":["Hello","HeLLo","Hellow","HelLo"]
+        },
+        "question2":{
+            "question":"What is the correct spelling of the word 'goodbye'?",
+            "answer":"Goodbye",
+            "choices":["Goodbye","GoodBye","GoodBy","GoodBye"]
+        },
+        "question3":{"question":"What is the correct spelling of the word 'yes'?",
+            "answer":"Yes",
+            "choices":["Yes","Ye","Y","Yea"]
+        },
+        "question4":{"question":"What is the correct spelling of the word 'no'?",
+            "answer":"No",
+            "choices":["No","N","Nope","Nope"]
+        },
+        "question5":{"question":"Which of the following is a noun?",
+            "answer":"knife",
+            "choices":["stab","knife","kill","laugh"]
+        },
+        "question6":{"question":"Which of the following is a noun?",
+            "answer":"idiot",
+            "choices":["turn","around","you","idiot"]
+        },
+        "question7":{"question":"Which of the following is an adjective?",
+            "answer":"slowly",
+            "choices":["sleep","yell","eat","slowly"]
+        },
+        "question8":{"question":"which of the following is an adjective?",
+            "answer":"messy",
+            "choices":["the","house","is","messy"]
+        },
+        "question9":{
+            "question":"Which of the following is a verb?",
+            "answer":"see",
+            "choices":["see","hollow","dark","shell"]
+        },
+        "question10":{
+            "question":"Which of the following is a verb?",
+            "answer":"turn",
+            "choices":["turn","to","the","sky"]
+        }
+    },
+    "history":{
+        "question1":{
+            "question":"Who was the first president of the United States?",
+            "answer":"George Washington",
+            "choices":["George Washington","John Adams","Thomas Jefferson","James Madison"]
+        },
+        "question2":{
+            "question":"Who was the first person to land on the moon?",
+            "answer":"Neil Armstrong",
+            "choices":["Elon Musk","Neil Armstrong","DaBaby","Johnny Depp"]
+        },
+        "question3":{"question":"Who is GigaChad?",
+            "answer":"Ernest Khalimov",
+            "choices":["Theodore Roosevelt","Ernest Khalimov","ZumTheZazaKing","Donald Duck"]
+        },
+        "question4":{"question":"When was COVID-19 first reported?",
+            "answer":"31 December 2019",
+            "choices":["7 January 2020","4 April 2020","1 March 2020","31 December 2019"]
+        },
+        "question5":{"question":"Who introduced the term 'memes'?",
+            "answer":"Richard Dawkins",
+            "choices":["Richard Dawkins","Johnny Sins","Dwayne Johnson","Amogus"]
+        },
+        "question6":{"question":"Who was sus?",
+            "answer":"The imposter",
+            "choices":["You","Your sister","Crewmate","The imposter"]
+        },
+        "question7":{"question":"What day did the hit movie Morbius come out on?",
+            "answer":"April Fools Day",
+            "choices":["Gay Day","April Fools Day","Morbin Day","Easter Day"]
+        },
+        "question8":{"question":"Who is the fattest person in the world?",
+            "answer":"Jon Brower Minnoch",
+            "choices":["Your mom","Jon Brower Minnoch","Ted Bundy","Nikocado Avocado"]
+        },
+        "question9":{
+            "question":"What is Dream's real name?",
+            "answer":"Clay Dream",
+            "choices":["Clay Dream","Nikocado Avocado","Elon Musk","GigaChad"]
+        },
+        "question10":{
+            "question":"What are the effects of watching Morbius?",
+            "answer":"Morbin Powers",
+            "choices":["Death","Cancer","Cringe","Morbin Powers"]
+        }
+    },
+    "geography":{
+        "question1":{
+            "question":"What is the capital of the United States?",
+            "answer":"Washington D.C.",
+            "choices":["Washington D.C.","New York","Los Angeles","Chicago"]
+        },
+        "question2":{
+            "question":"What is the capital of Canada?",
+            "answer":"Ottawa",
+            "choices":["Ottawa","Toronto","Vancouver","Montreal"]
+        },
+        "question3":{"question":"What is the capital of Mexico?",
+            "answer":"Mexico City",
+            "choices":["Mexico City","Mexico","Mexico City","Mexico City"]
+        },
+        "question4":{"question":"What is the capital of the United Kingdom?",
+            "answer":"London",
+            "choices":["London","Manchester","Liverpool","Birmingham"]
+        },
+        "question5":{"question":"Which country has the highest population?",
+            "answer":"China",
+            "choices":["Japan","South Korea","China","India"]
+        },
+        "question6":{"question":"Which is one of the oceans of the world?",
+            "answer":"Atlantic Ocean",
+            "choices":["Specific Ocean","Atlantic Ocean","Indiana Ocean","Arabian Sea"]
+        },
+        "question7":{"question":"Which is the largest island in the world?",
+            "answer":"Greenland",
+            "choices":["Iceland","Antartica","Greenland","New Zealand"]
+        },
+        "question8":{"question":"How do you measure the speed of wind?",
+            "answer":"Anemometer",
+            "choices":["Ammeter","Voltmeter","Galvanometer","Anemometer"]
+        },
+        "question9":{
+            "question":"Which is the coldest continent in the world?",
+            "answer":"Antarctica",
+            "choices":["Asia","Antartica","Europe","Oceania"]
+        },
+        "question10":{
+            "question":"Which is the name of the river that is not crossed by any bridges?",
+            "answer":"Amazon",
+            "choices":["Nile","Amazon","Mississippi","Congo"]
+        }
+    }
+}
