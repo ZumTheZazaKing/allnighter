@@ -9,6 +9,7 @@ const Introduction = lazy(() => import('./pages/Introduction').then(module => ({
 const Game = lazy(() => import('./pages/Game').then(module => ({ default: module.Game })));
 const NightComplete = lazy(() => import('./pages/NightComplete').then(module => ({ default: module.NightComplete })));
 const Note = lazy((() => import('./pages/Note').then(module => ({ default: module.Note }))));
+const GameOver = lazy(() => import('./pages/GameOver').then(module => ({ default: module.GameOver })));
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
               <Route path="/game" element={<Game />} />
               <Route path="/nightcomplete" element={<NightComplete />} />
               <Route path="/note" element={<Note />} />
+              <Route path="/gameover" element={<GameOver />} />
 
             </Routes>
           </Suspense>
