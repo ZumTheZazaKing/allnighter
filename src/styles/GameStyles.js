@@ -15,7 +15,7 @@ export const GameStyles = StyleSheet.create({
         position:"fixed",
         top:"0",
         left:"0",
-        zIndex:"2"
+        zIndex:"2",
     },
     backView:{
         backgroundImage: `url(${RoomBackView})`,
@@ -64,5 +64,19 @@ export const GameStyles = StyleSheet.create({
     },
     contentHide:{
         display: 'none',
+    },
+    quizOptions:{
+        textAlign:"center",
+        display:"grid",
+        gridTemplateColumns:"repeat(2,1fr)",
+    },
+    quizOption:{
+        padding:"10px",
+        border:"none",
+        outline:"none",
+        cursor:"pointer",
+        backgroundColor:"lightgrey",
+        fontSize:"18px",
+        margin:"10px 10px"
     }
 })

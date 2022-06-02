@@ -7,7 +7,7 @@ import { useContext } from "react";
 export const NightComplete = () => {
 
     const navigate = useNavigate();
-    const { savedGame } = useContext(Context);
+    const { savedGame, setSavedGame } = useContext(Context);
     let subjectScore;
 
     switch(savedGame.night){
@@ -30,10 +30,15 @@ export const NightComplete = () => {
     }
 
     const nextNight = () => {
+        if(savedGame.night === 5)return navigate("/note")
+        setSavedGame({...savedGame, night: savedGame.night + 1})
+        localStorage.setItem("savedGame", JSON.stringify({...savedGame, night: savedGame.night + 1}))
         navigate("/game")
     }
 
     const mainMenu = () => {
+        setSavedGame({...savedGame, night: savedGame.night + 1})
+        localStorage.setItem("savedGame", JSON.stringify({...savedGame, night: savedGame.night + 1}))
         navigate("/")
     }
 
@@ -41,7 +46,7 @@ export const NightComplete = () => {
         <div className={css(NightCompleteStyles.container)}>
             <h1 className={css(NightCompleteStyles.fadeIn)}>Night Complete</h1>
             <br/>
-            <p className={css([NightCompleteStyles.fadeIn])}>You got {subjectScore}/10</p>
+            <p className={css([NightCompleteStyles.fadeIn])}>You got {subjectScore}/20</p>
             <br/>
             <button onClick={() => mainMenu()} className={css([NightCompleteStyles.fadeIn, NightCompleteStyles.button])}>Main Menu</button>
             <button onClick={() => nextNight()} className={css([NightCompleteStyles.fadeIn, NightCompleteStyles.button])}>Continue</button>

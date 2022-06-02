@@ -1,230 +1,482 @@
 {
-    "math":{
-        "question1":{
-            "question":"What is the value of the following expression?\n\n(2+3)*(4+5)",
+    "math":[
+        {
+            "question":"(2+3)*(4+5)?",
             "answer":45,
             "choices":[45,50,55,60]
         },
-        "question2":{
-            "question":"What is the value of the following expression?\n\n(2+3)*(4+5)*(6+7)",
+        {
+            "question":"(2+3)*(4+5)*(6+7)?",
             "answer":585,
             "choices":[1230,585,728,106]
         },
-        "question3":{"question":"What is the value of the following expression?\n\n(2+3)*(4+5)*(6+7)*(8+9)",
+        {"question":"(2+3)*(4+5)*(6+7)*(8+9)?",
             "answer":9945,
             "choices":[10290,5001,9945,1890]
         },
-        "question4":{"question":"What is the value of the following expression?\n\n(2+3)*(4+5)*(6+7)*(8+9)*(10+11)",
+        {"question":"(2+3)*(4+5)*(6+7)*(8+9)*(10+11)?",
             "answer":208845,
             "choices":[114750,115670,218867,208845]
         },
-        "question5":{"question":"What is the value of the following expression?\n\n1+1",
+        {"question":"1+1?",
             "answer":2,
             "choices":[3,2,4,5]
         },
-        "question6":{"question":"What is the value of the following expression?\n\n1/2 * 2",
+        {"question":"1/2 * 2?",
             "answer":1,
             "choices":[3,2,1,4]
         },
-        "question7":{"question":"What is the value of the following expression when rounded up?\n\nπ * 2 * 2",
+        {"question":"π * 2 * 2?",
             "answer":13,
             "choices":[12,13,8,6]
         },
-        "question8":{"question":"What is the value of the following expression?\n\nHow many sides does a square have?",
+        {"question":"How many sides does a square have?",
             "answer":4,
             "choices":[3,4,5,6]
         },
-        "question9":{"question":"What is the value of the following expression?\n\nHow many sides does a triangle have?",
+        {"question":"How many sides does a triangle have?",
             "answer":3,
             "choices":[4,6,5,3]
         },
-        "question10":{"question":"What is the value of the following expression?\n\nHow many sides does a pentagon have?",
+        {"question":"How many sides does a pentagon have?",
             "answer":5,
             "choices":[5,4,6,3]
+        },
+        {
+            "question":"If x > 3, then x > 1?",
+            "answer":"True",
+            "choices":["True","False","Neither","Trick Question"]
+        },
+        {
+            "question":"If 1=3, then...",
+            "answer":"6=3",
+            "choices":["6=3","4=3","5=3","2=4"]
+        },
+        {
+            "question":"2+2",
+            "answer":"4",
+            "choices":["3","4","5","6"]
+        },
+        {
+            "question":"2*3",
+            "answer":"6",
+            "choices":["6","4","5","7"]
+        },
+        {
+            "question":"How many sides does a nonagon have?",
+            "answer":"9",
+            "choices":["8","9","10","11"]
+        },
+        {
+            "question":"How many sides does a decagon have?",
+            "answer":"10",
+            "choices":["9","10","11","12"]
+        },
+        {
+            "question":"What is the unit for the speed of a car?",
+            "answer":"mph",
+            "choices":["km/h","cm/g","cm/s","km/s"]
+        },
+        {
+            "question":"How many seconds are in a minute?",
+            "answer":"60",
+            "choices":["30","60","20","120"]
+        },
+        {
+            "question":"How many minutes are in an hour?",
+            "answer":"60",
+            "choices":["30","60","20","120"]
+        },
+        {
+            "question":"How many hours are in a day?",
+            "answer":"24",
+            "choices":["12","24","48","72"]
         }
-    },
-    "science":{
-        "question1":{
+
+
+    ],
+    "science":[
+        {
             "question":"The center of the earth is very hot",
             "answer":"True",
             "choices":["True","False"]
         },
-        "question2":{
+        {
             "question":"The continents have been moving their location for millions of years and will continue to move",
             "answer":"True",
             "choices":["True","False"]
         },
-        "question3":{"question":"Does the Earth go around the Sun, or does the Sun go around the Earth?",
+        {"question":"Does the Earth go around the Sun, or does the Sun go around the Earth?",
             "answer":"The Earth goes around the Sun",
             "choices":["The Earth goes around the Sun","The Sun goes around the Earth"]
         },
-        "question4":{"question":"True or false? All radioactivity is man-made",
+        {"question":"True or false? All radioactivity is man-made",
             "answer":"False",
             "choices":["True","False"]
         },
-        "question5":{"question":"Electrons are smaller than atoms",
+        {"question":"Electrons are smaller than atoms",
             "answer":"True",
             "choices":["True","False"]
         },
-        "question6":{"question":"Lasers work by focusing sound waves",
+        {"question":"Lasers work by focusing sound waves",
             "answer":"False",
             "choices":["True","False"]
         },
-        "question7":{"question":"The universe began with a huge explosion",
+        {"question":"The universe began with a huge explosion",
             "answer":"True",
             "choices":["True","False"]
         },
-        "question8":{"question":"It is the father's gene that decides whether the baby is a boy or a girl",
+        {"question":"It is the father's gene that decides whether the baby is a boy or a girl",
             "answer":"True",
             "choices":["True","False"]
         },
-        "question9":{
+        {
             "question":"Antibiotics kill viruses as well as bacteria",
             "answer":"False",
             "choices":["True","False"]
         },
-        "question10":{
+        {
             "question":"The Earth is the only planet that has a moon",
             "answer":"False",
             "choices":["True","False"]
+        },
+        {
+            "question":"Can you eat Mercury?",
+            "answer":"No",
+            "choices":["Yes","No"]
+        },
+        {
+            "question":"Are mushrooms fungi?",
+            "answer":"Yes",
+            "choices":["Yes","No"]
+        },
+        {
+            "question":"Hidrocarbons only consist of carbon and hydrogen",
+            "answer":"True",
+            "choices":["True","False"]
+        },
+        {
+            "question":"The ISS is located in the MEO",
+            "answer":"False",
+            "choices":["True","False"]
+        },
+        {
+            "question":"Mitochondria is the powerhouse of the cell",
+            "answer":"True",
+            "choices":["True","False"]
+        },
+        {
+            "question":"Tungsten is a very dense metal",
+            "answer":"True",
+            "choices":["True","False"]
+        },
+        {
+            "question":"Reaction rate can be measured in seconds",
+            "answer":"True",
+            "choices":["True","False"]
+        },
+        {
+            "question":"Severe weather can cause wildfires",
+            "answer":"True",
+            "choices":["True","False"]
+        },
+        {
+            "question":"Cracking your knuckles can give you arthritis",
+            "answer":"False",
+            "choices":["True","False"]
+        },
+        {
+            "question":"Blood loss is good for the body",
+            "answer":"False",
+            "choices":["True","False"]
         }
-    },
-    "english":{
-        "question1":{
+    ],
+    "english":[
+        {
             "question":"What is the correct spelling of the word 'hello'?",
             "answer":"Hello",
             "choices":["Hello","HeLLo","Hellow","HelLo"]
         },
-        "question2":{
+        {
             "question":"What is the correct spelling of the word 'goodbye'?",
             "answer":"Goodbye",
             "choices":["Goodbye","GoodBye","GoodBy","GoodBye"]
         },
-        "question3":{"question":"What is the correct spelling of the word 'yes'?",
+        {"question":"What is the correct spelling of the word 'yes'?",
             "answer":"Yes",
             "choices":["Yes","Ye","Y","Yea"]
         },
-        "question4":{"question":"What is the correct spelling of the word 'no'?",
+        {"question":"What is the correct spelling of the word 'no'?",
             "answer":"No",
             "choices":["No","N","Nope","Nope"]
         },
-        "question5":{"question":"Which of the following is a noun?",
+        {"question":"Which of the following is a noun?",
             "answer":"knife",
             "choices":["stab","knife","kill","laugh"]
         },
-        "question6":{"question":"Which of the following is a noun?",
+        {"question":"Which of the following is a noun?",
             "answer":"idiot",
             "choices":["turn","around","you","idiot"]
         },
-        "question7":{"question":"Which of the following is an adjective?",
+        {"question":"Which of the following is an adjective?",
             "answer":"slowly",
             "choices":["sleep","yell","eat","slowly"]
         },
-        "question8":{"question":"which of the following is an adjective?",
+        {"question":"which of the following is an adjective?",
             "answer":"messy",
             "choices":["the","house","is","messy"]
         },
-        "question9":{
+        {
             "question":"Which of the following is a verb?",
             "answer":"see",
             "choices":["see","hollow","dark","shell"]
         },
-        "question10":{
+        {
             "question":"Which of the following is a verb?",
             "answer":"turn",
             "choices":["turn","to","the","sky"]
+        },
+        {
+            "question":"Which of the following is a verb?",
+            "answer":"go",
+            "choices":["go","to","the","sky"]
+        },
+        {
+            "question":"Which of the following is an adjective?",
+            "answer":"weird",
+            "choices":["My", "friends","are","weird"]
+        },
+        {
+            "question":"Which of the following is an adjective?",
+            "answer":"old",
+            "choices":["My", "friends","are","old"]
+        },
+        {
+            "question":"Which of the following is an adjective?",
+            "answer":"dead",
+            "choices":["My", "friends","are","dead"]
+        },
+        {
+            "question":"Which of the following is a pronoun?",
+            "answer":"I",
+            "choices":["I","killed","a","man"]
+        },
+        {
+            "question":"Which of the following is a pronoun?",
+            "answer":"you",
+            "choices":["Humans","don't","love","you"]
+        },
+        {
+            "question":"Which of the following is past tense?",
+            "answer":"killed",
+            "choices":["I","killed","my","killer"]
+        },
+        {
+            "question":"Which of the following is past tense?",
+            "answer":"ate",
+            "choices":["I","ate","my","killer"]
+        },
+        {
+            "question":"Which of the following is past tense?",
+            "answer":"saw",
+            "choices":["I","saw","my","sister"]
+        },
+        {
+            "question":"Which of the following is past tense?",
+            "answer":"destroyed",
+            "choices":["I","destroyed","the","world"]
         }
-    },
-    "history":{
-        "question1":{
+    ],
+    "history":[
+        {
             "question":"Who was the first president of the United States?",
             "answer":"George Washington",
             "choices":["George Washington","John Adams","Thomas Jefferson","James Madison"]
         },
-        "question2":{
+        {
             "question":"Who was the first person to land on the moon?",
             "answer":"Neil Armstrong",
             "choices":["Elon Musk","Neil Armstrong","DaBaby","Johnny Depp"]
         },
-        "question3":{"question":"Who is GigaChad?",
-            "answer":"Ernest Khalimov",
-            "choices":["Theodore Roosevelt","Ernest Khalimov","ZumTheZazaKing","Donald Duck"]
+        {"question":"When did the construction of the Great Wall of China begin?",
+            "answer":"7th century BC",
+            "choices":["1st century BC","7th century BC","8th century BC","3rd century BC"]
         },
-        "question4":{"question":"When was COVID-19 first reported?",
+        {"question":"When was COVID-19 first reported?",
             "answer":"31 December 2019",
             "choices":["7 January 2020","4 April 2020","1 March 2020","31 December 2019"]
         },
-        "question5":{"question":"Who introduced the term 'memes'?",
+        {"question":"Who introduced the term 'memes'?",
             "answer":"Richard Dawkins",
             "choices":["Richard Dawkins","Johnny Sins","Dwayne Johnson","Amogus"]
         },
-        "question6":{"question":"Who was sus?",
-            "answer":"The imposter",
-            "choices":["You","Your sister","Crewmate","The imposter"]
+        {"question":"What is considered the largest empire in history?",
+            "answer":"The Mongol Empire",
+            "choices":["Ottoman Empire","Persian Empire","Spanish Empire","Mongol Empire"]
         },
-        "question7":{"question":"What day did the hit movie Morbius come out on?",
-            "answer":"April Fools Day",
-            "choices":["Gay Day","April Fools Day","Morbin Day","Easter Day"]
+        {"question":"During which war was a Christmas Truce called?",
+            "answer":"World War I",
+            "choices":["World War II","World War I","Vietnam War","Seven Years' War"]
         },
-        "question8":{"question":"Who is the fattest person in the world?",
-            "answer":"Jon Brower Minnoch",
-            "choices":["Your mom","Jon Brower Minnoch","Ted Bundy","Nikocado Avocado"]
+        {"question":"Who was the first ruler of the Mongol Empire?",
+            "answer":"Genghis Khan",
+            "choices":["Your mom","Genghis Khan","Ted Bundy","Nikocado Avocado"]
         },
-        "question9":{
-            "question":"What is Dream's real name?",
-            "answer":"Clay Dream",
-            "choices":["Clay Dream","Nikocado Avocado","Elon Musk","GigaChad"]
+        {
+            "question":"What is the world's oldest recorded civilization?",
+            "answer":"Mesopotamia",
+            "choices":["Mesopotamia","Ancient Egypt","Babylon","Ancient Rome"]
         },
-        "question10":{
-            "question":"What are the effects of watching Morbius?",
-            "answer":"Morbin Powers",
-            "choices":["Death","Cancer","Cringe","Morbin Powers"]
+        {
+            "question":"Who is the king of the Olympian gods in Greek mythology?",
+            "answer":"Zeus",
+            "choices":["Odin","Loki","Thor","Zeus"]
+        },
+        {
+            "question":"What is the name of the Greek god of war?",
+            "answer":"Hephaestus",
+            "choices":["Hephaestus","Hermes","Hades","Hercules"]
+        },
+        {
+            "question":"Which fabric was invented in Ancient China?",
+            "answer":"Silk",
+            "choices":["Silk","Cotton","Linen","Wool"]
+        },
+        {
+            "question":"The Byzantine Empire was a continuation of which powerful ancient empire?",
+            "answer":"Roman",
+            "choices":["Roman","Greek","Egyptian","Chinese"]
+        },
+        {
+            "question":"What year was the first iPhone released?",
+            "answer":"2007",
+            "choices":["2007","2008","2009","2010"]
+        },
+        {
+            "question":"Which country hosted the 2016 Olympics?",
+            "answer":"Brazil",
+            "choices":["Germany","Brazil","Italy","Spain"]
+        },
+        {
+            "question":"What year was Facebook created?",
+            "answer":"2004",
+            "choices":["2007","2005","2006","2004"]
+        },
+        {
+            "question":"Which planet was downgraded to a dwarf planet in 2006?",
+            "answer":"Pluto",
+            "choices":["Neptune","Pluto","Uranus","Saturn"]
+        },
+        {
+            "question":"What year did Google launch?",
+            "answer":"1998",
+            "choices":["1997","1998","1999","2000"]
+        },
+        {
+            "question":"Who won the 2008 U.S. Presidential election?",
+            "answer":"Barack Obama",
+            "choices":["Barack Obama","George W. Bush","Bill Clinton","Donald Trump"]
+        },
+        {
+            "question":"What year did the Internet become available to the public?",
+            "answer":"1993",
+            "choices":["1992","1993","1994","1995"]
         }
-    },
-    "geography":{
-        "question1":{
+    ],
+    "geography":[
+        {
             "question":"What is the capital of the United States?",
             "answer":"Washington D.C.",
             "choices":["Washington D.C.","New York","Los Angeles","Chicago"]
         },
-        "question2":{
+        {
             "question":"What is the capital of Canada?",
             "answer":"Ottawa",
             "choices":["Ottawa","Toronto","Vancouver","Montreal"]
         },
-        "question3":{"question":"What is the capital of Mexico?",
+        {"question":"What is the capital of Mexico?",
             "answer":"Mexico City",
-            "choices":["Mexico City","Mexico","Mexico City","Mexico City"]
+            "choices":["Mexico City","Mexico","Bangladesh","Germany"]
         },
-        "question4":{"question":"What is the capital of the United Kingdom?",
+        {"question":"What is the capital of the United Kingdom?",
             "answer":"London",
             "choices":["London","Manchester","Liverpool","Birmingham"]
         },
-        "question5":{"question":"Which country has the highest population?",
+        {"question":"Which country has the highest population?",
             "answer":"China",
             "choices":["Japan","South Korea","China","India"]
         },
-        "question6":{"question":"Which is one of the oceans of the world?",
+        {"question":"Which is one of the oceans of the world?",
             "answer":"Atlantic Ocean",
             "choices":["Specific Ocean","Atlantic Ocean","Indiana Ocean","Arabian Sea"]
         },
-        "question7":{"question":"Which is the largest island in the world?",
+        {"question":"Which is the largest island in the world?",
             "answer":"Greenland",
             "choices":["Iceland","Antartica","Greenland","New Zealand"]
         },
-        "question8":{"question":"How do you measure the speed of wind?",
+        {"question":"How do you measure the speed of wind?",
             "answer":"Anemometer",
             "choices":["Ammeter","Voltmeter","Galvanometer","Anemometer"]
         },
-        "question9":{
+        {
             "question":"Which is the coldest continent in the world?",
             "answer":"Antarctica",
             "choices":["Asia","Antartica","Europe","Oceania"]
         },
-        "question10":{
+        {
             "question":"Which is the name of the river that is not crossed by any bridges?",
             "answer":"Amazon",
             "choices":["Nile","Amazon","Mississippi","Congo"]
+        },
+        {
+            "question":"Which is the largest country in the world?",
+            "answer":"Russia",
+            "choices":["United States","China","Canada","Russia"]
+        },
+        {
+            "question":"What is the capital city of India?",
+            "answer":"New Delhi",
+            "choices":["New Delhi","Mumbai","Kolkata","Chennai"]
+        },
+        {
+            "question":"In which country would you find the Leaning Tower of Pisa?",
+            "answer":"Italy",
+            "choices":["Spain","Italy","France","Germany"]
+        },
+        {
+            "question":"What is the name of the biggest ocean on Earth?",
+            "answer":"Pacific Ocean",
+            "choices":["Atlantic Ocean","Pacific Ocean","Indian Ocean","Arctic Ocean"]
+        },
+        {
+            "question":"The United States consists of how many states?",
+            "answer":"50",
+            "choices":["50","51","52","53"]
+        },
+        {
+            "question":"Which is the biggest desert in the world?",
+            "answer":"Sahara Desert",
+            "choices":["Sahara Desert","Artic Desert","Antarctic Desert","Great Australian Desert"]
+        },
+        {
+            "question":"Which is the hottest continent on Earth?",
+            "answer":"Africa",
+            "choices":["Africa","Asia","Europe","Australia"]
+        },
+        {
+            "question":"Which is the highest mountain in the world?",
+            "answer":"Mount Everest",
+            "choices":["Mount Kilimanjaro","Mount Kilimanjaro","Mount Fuji","Mount Everest"]
+        },
+        {
+            "question":"Which continent is known as Dark Continent?",
+            "answer":"Africa",
+            "choices":["Africa","Asia","Europe","Australia"]
+        },
+        {
+            "question":"What do you call land with water on 3 sides?",
+            "answer":"Peninsula",
+            "choices":["Peninsula","Island","Archipelago","Isle"]
         }
-    }
+    ]
 }

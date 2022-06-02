@@ -3,18 +3,31 @@ import { css } from "aphrodite";
 import { useContext, useState, useEffect, useRef } from "react";
 import { Context } from "../Context";
 import Homework from '../data.json'
+import { useNavigate } from "react-router-dom";
 
 export default function Computer(props){
 
-    const { savedGame } = useContext(Context);
+    const { savedGame, setSavedGame } = useContext(Context);
     const { enteredComputer, time } = props;
     const [subject, setSubject] = useState("")
     const [homework, setHomework] = useState(null)
     const [downloadPercentage, setDownloadPercentage] = useState(null)
+    const [uploadPercentage, setUploadPercentage] = useState(null)
+    const [questionIndex, setQuestionIndex] = useState(0)
+    const [rightAnswers, setRightAnswers] = useState(0)
+    const [processing, setProcessing] = useState(false);
+    const [unlucky, setUnlucky] = useState(false);
 
-    const downloadRef = useRef()
+    const navigate = useNavigate();
+
+    const downloadButton = useRef()
+    const downloadSection = useRef();
+    const uploadButton = useRef();
+    const quizSection = useRef();
+    const uploadSection = useRef();
 
     useEffect(() => {
+        setUnlucky(Boolean(Math.round(Math.random())))
         switch(savedGame.night){
             case 1:
                 setSubject("math")
@@ -41,29 +54,128 @@ export default function Computer(props){
     },[savedGame.night])
 
     const downloadAssignment = () => {
+        downloadButton.current.disabled = true;
         const downloading = setInterval(() => {
             setDownloadPercentage(downloadPercentage => downloadPercentage + 1)
         },300)
+        if(!unlucky){
+            const done = setTimeout(() => {
+                clearInterval(downloading)
+                clearTimeout(done)
+                downloadButton.current.disabled = false;
+            },30000)
+        }else{
+            const done = setTimeout(() => {
+                clearInterval(downloading)
+                const smugDone = setTimeout(() => {
+                    clearTimeout(done)
+                    clearTimeout(smugDone)
+                    setDownloadPercentage(downloadPercentage => downloadPercentage + 1)
+                    downloadButton.current.disabled = false;
+                },15000)
+            },29700)
+        }
+    }
+
+    const takeQuiz = () => {
+        downloadSection.current.style.display = "none";
+        quizSection.current.style.display = "block";
+    }
+
+    const nextQuestion = (e) => {
+        if(e.target.innerHTML === String(homework[questionIndex].answer)){
+            setRightAnswers(rightAnswers => rightAnswers + 1)
+        }
+        if(questionIndex < homework.length - 1){
+            setProcessing(true)
+            setTimeout(() => {
+                setQuestionIndex(questionIndex => questionIndex + 1)
+                setProcessing(false)
+            },1000)
+        }else{
+            setProcessing(true)
+            setTimeout(() => {
+                quizSection.current.style.display = "none";
+                uploadSection.current.style.display = "block";
+                setProcessing(false)
+            },1000)
+        }
+    }
+
+    const submitAssignment = () => {
+        uploadButton.current.disabled = true;
+        const uploading = setInterval(() => {
+            setUploadPercentage(uploadPercentage => uploadPercentage + 1)
+        },300)
         const done = setTimeout(() => {
-            clearInterval(downloading)
+            clearInterval(uploading)
             clearTimeout(done)
+            uploadButton.current.disabled = false;
+            switch(subject){
+                case "math":
+                    setSavedGame({...savedGame, math: savedGame.math + rightAnswers})
+                    localStorage.setItem("savedGame", JSON.stringify({...savedGame, math: savedGame.math + rightAnswers}))
+                    break;
+                case "science":
+                    setSavedGame({...savedGame, science: savedGame.science + rightAnswers})
+                    localStorage.setItem("savedGame", JSON.stringify({...savedGame, science: savedGame.science + rightAnswers}))
+                    break;
+                case "english":
+                    setSavedGame({...savedGame, english: savedGame.english + rightAnswers})
+                    localStorage.setItem("savedGame", JSON.stringify({...savedGame, english: savedGame.english + rightAnswers}))
+                    break;
+                case "history":
+                    setSavedGame({...savedGame, history: savedGame.history + rightAnswers})
+                    localStorage.setItem("savedGame", JSON.stringify({...savedGame, history: savedGame.history + rightAnswers}))
+                    break;
+                case "geography":
+                    setSavedGame({...savedGame, geography: savedGame.geography + rightAnswers})
+                    localStorage.setItem("savedGame", JSON.stringify({...savedGame, geography: savedGame.geography + rightAnswers}))
+                    break;
+                default:return;
+            }
         },30000)
+    }
+
+    const shutdown = () => {
+        navigate("/nightcomplete")
     }
 
     return(
         <div className={css([GameStyles.computer, enteredComputer ? "" : GameStyles.computerHide])}>
             <div className={css(GameStyles.computerTopbar)}>
                 <h4>{time === 0 ? "12" : time}:00 AM</h4>
-                {savedGame.night === "1" ? <p>Hold Q to look BEHIND YOU, Press R to Exit Computer</p> : ""}
+                {savedGame.night === 1 ? <p>Hold Q to look BEHIND YOU, Press R to Exit Computer</p> : ""}
             </div>
 
-            <div className={css(GameStyles.computerDownload)}>
+            <div ref={downloadSection} className={css(GameStyles.computerDownload)}>
                 <h3>Download {subject.charAt(0).toUpperCase() + subject.slice(1)} Assignment</h3>
                 <br/>
                 {downloadPercentage === 100 ?
-                <button className={css(GameStyles.downloadButton)}>Take Quiz</button> :
-                <button ref={downloadRef} onClick={() => downloadAssignment()} className={css(GameStyles.downloadButton)}>
+                <button onClick={() => takeQuiz()} className={css(GameStyles.downloadButton)}>Take Quiz</button> :
+                <button ref={downloadButton} onClick={() => downloadAssignment()} className={css(GameStyles.downloadButton)}>
                     {downloadPercentage === null ? "Download" : `${downloadPercentage}%`}
+                </button>}
+            </div>
+
+            {homework ? <div ref={quizSection} style={{display: 'none', textAlign:"center"}}>
+                <h2>{homework[questionIndex].question}</h2>
+                <br/>
+                <div className={css(GameStyles.quizOptions)}>
+                    <button disabled={processing} onClick={(e) => nextQuestion(e)} className={css(GameStyles.quizOption)}>{homework[questionIndex].choices[0]}</button>
+                    <button disabled={processing} onClick={(e) => nextQuestion(e)} className={css(GameStyles.quizOption)}>{homework[questionIndex].choices[1]}</button>
+                    <button disabled={processing} onClick={(e) => nextQuestion(e)} style={subject === "science" ? {display: 'none'} : {}} className={css(GameStyles.quizOption)}>{homework[questionIndex].choices[2]}</button>
+                    <button disabled={processing} onClick={(e) => nextQuestion(e)} style={subject === "science" ? {display: 'none'} : {}} className={css(GameStyles.quizOption)}>{homework[questionIndex].choices[3]}</button>
+                </div>
+            </div> : ""}
+
+            <div ref={uploadSection} style={{display: 'none'}} className={css(GameStyles.computerDownload)}>
+                <h3>Submit {subject.charAt(0).toUpperCase() + subject.slice(1)} Assignment</h3>
+                <br/>
+                {uploadPercentage === 100 ?
+                <button onClick={() => shutdown()} className={css(GameStyles.downloadButton)}>Shutdown</button> :
+                <button ref={uploadButton} onClick={() => submitAssignment()} className={css(GameStyles.downloadButton)}>
+                    {uploadPercentage === null ? "Submit" : `${uploadPercentage}%`}
                 </button>}
             </div>
 

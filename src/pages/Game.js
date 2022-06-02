@@ -1,7 +1,6 @@
 import { css } from "aphrodite"
 import { GameStyles } from "../styles/GameStyles"
-import { useState, useEffect, useContext } from "react";
-import { Context } from "../Context";
+import { useState, useEffect } from "react";
 import Computer from "./Computer";
 import ComputerFan from '../audio/noises/computerfan.mp3';
 import { useNavigate } from "react-router-dom";
@@ -9,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 export const Game = () => {
 
     const [computerfan] = useState(new Audio(ComputerFan));
-    const { savedGame, setSavedGame } = useContext(Context);
     const [lookback, setLookBack] = useState(false)
     const [enteredComputer, setEnteredComputer] = useState(false)
     const [time, setTime] = useState(0)
@@ -40,8 +38,6 @@ export const Game = () => {
 
     useEffect(() => {
         if(time === 6){
-            setSavedGame({...savedGame, night: savedGame.night + 1})
-            localStorage.setItem("savedGame", JSON.stringify({...savedGame, night: savedGame.night + 1}))
             navigate("/nightcomplete")
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
