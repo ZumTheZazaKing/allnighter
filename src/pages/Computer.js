@@ -4,11 +4,13 @@ import { useContext, useState, useEffect, useRef } from "react";
 import { Context } from "../Context";
 import Homework from '../data.json'
 import { useNavigate } from "react-router-dom";
+import Wifi from '../images/wifi.png';
+import NoWifi from '../images/nowifi.png';
 
 export default function Computer(props){
 
     const { savedGame, setSavedGame } = useContext(Context);
-    const { enteredComputer, time } = props;
+    const { enteredComputer, time, network } = props;
     const [subject, setSubject] = useState("")
     const [homework, setHomework] = useState(null)
     const [downloadPercentage, setDownloadPercentage] = useState(null)
@@ -17,6 +19,7 @@ export default function Computer(props){
     const [rightAnswers, setRightAnswers] = useState(0)
     const [processing, setProcessing] = useState(false);
     const [unlucky, setUnlucky] = useState(false);
+    const [showWarning, setShowWarning] = useState(false);
 
     const navigate = useNavigate();
 
@@ -54,6 +57,11 @@ export default function Computer(props){
     },[savedGame.night])
 
     const downloadAssignment = () => {
+        if(!network){
+            setShowWarning(true)
+            setTimeout(() => setShowWarning(false), 1000);
+            return;
+        }
         downloadButton.current.disabled = true;
         const downloading = setInterval(() => {
             setDownloadPercentage(downloadPercentage => downloadPercentage + 1)
@@ -83,6 +91,11 @@ export default function Computer(props){
     }
 
     const nextQuestion = (e) => {
+        if(!network){
+            setShowWarning(true)
+            setTimeout(() => setShowWarning(false), 1000);
+            return;
+        }
         if(e.target.innerHTML === String(homework[questionIndex].answer)){
             setRightAnswers(rightAnswers => rightAnswers + 1)
         }
@@ -103,6 +116,11 @@ export default function Computer(props){
     }
 
     const submitAssignment = () => {
+        if(!network){
+            setShowWarning(true)
+            setTimeout(() => setShowWarning(false), 1000);
+            return;
+        }
         uploadButton.current.disabled = true;
         const uploading = setInterval(() => {
             setUploadPercentage(uploadPercentage => uploadPercentage + 1)
@@ -144,7 +162,10 @@ export default function Computer(props){
     return(
         <div className={css([GameStyles.computer, enteredComputer ? "" : GameStyles.computerHide])}>
             <div className={css(GameStyles.computerTopbar)}>
-                <h4>{time === 0 ? "12" : time}:00 AM</h4>
+                <div className={css(GameStyles.computerCoreInfo)}>
+                    <h4>{time === 0 ? "12" : time}:00 AM</h4>
+                    <img className={css(GameStyles.wifiIcon)} alt="" src={network ? Wifi : NoWifi}/>
+                </div>
                 {savedGame.night === 1 ? <p>Hold Q to look BEHIND YOU, Press R to Exit Computer</p> : ""}
             </div>
 
@@ -158,7 +179,7 @@ export default function Computer(props){
                 </button>}
             </div>
 
-            {homework ? <div ref={quizSection} style={{display: 'none', textAlign:"center"}}>
+            {homework ? <div ref={quizSection} className={css(GameStyles.quizSection)} style={{display: 'none', textAlign:"center"}}>
                 <h2>{homework[questionIndex].question}</h2>
                 <br/>
                 <div className={css(GameStyles.quizOptions)}>
@@ -177,6 +198,11 @@ export default function Computer(props){
                 <button ref={uploadButton} onClick={() => submitAssignment()} className={css(GameStyles.downloadButton)}>
                     {uploadPercentage === null ? "Submit" : `${uploadPercentage}%`}
                 </button>}
+            </div>
+
+            <div className={css([GameStyles.nowifiwarning, showWarning ? "" : GameStyles.contentHide])}>
+                <br/>
+                NO CONNECTION
             </div>
 
         </div>

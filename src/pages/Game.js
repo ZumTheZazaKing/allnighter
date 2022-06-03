@@ -1,9 +1,10 @@
 import { css } from "aphrodite"
 import { GameStyles } from "../styles/GameStyles"
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Computer from "./Computer";
 import ComputerFan from '../audio/noises/computerfan.mp3';
 import { useNavigate } from "react-router-dom";
+import Phone from "../components/Phone";
 
 export const Game = () => {
 
@@ -11,7 +12,12 @@ export const Game = () => {
     const [lookback, setLookBack] = useState(false)
     const [enteredComputer, setEnteredComputer] = useState(false)
     const [time, setTime] = useState(0)
+    const [network, setNetwork] = useState(false);
+    const [networkProgress, setNetworkProgress] = useState(0);
     const navigate = useNavigate();
+    const [showPhone, setShowPhone] = useState(false);
+    
+    const networkButton = useRef();
 
     useEffect(() => {
         computerfan.currentTime = 0;
@@ -59,13 +65,47 @@ export const Game = () => {
         if(lookback)return;
         setEnteredComputer(true)
     }
+
+    const turnOnNetwork = () => {
+        networkButton.current.disabled = true;
+        const turningOn = setInterval(() => {
+            setNetworkProgress(networkProgress => networkProgress + 1)
+        },150)
+        const done = setTimeout(() => {
+            clearInterval(turningOn)
+            clearTimeout(done)
+            setNetwork(true)
+            setNetworkProgress(0)
+            networkButton.current.disabled = false;
+            let gracePeriod = Math.floor(Math.random()*40000)
+            const doneGrace = setTimeout(() => {
+                setNetwork(false)
+                clearTimeout(doneGrace)
+            },gracePeriod)
+        },15000)
+    }
+
+    const turnOffNetwork = () => {
+        setNetwork(false)
+        setNetworkProgress(0)
+    }
     
 
     return(
         <div>
             <div className={css([GameStyles.container, GameStyles.backView, lookback ? "" : GameStyles.hide])}></div>
             <div onClick={enterComputer} className={css([GameStyles.container, GameStyles.mainView, lookback ? GameStyles.hide : ""])}></div>
-            <Computer time={time} enteredComputer={enteredComputer}/>
+            <Computer network={network} time={time} enteredComputer={enteredComputer}/>
+            <Phone 
+                networkProgress={networkProgress}
+                network={network}
+                networkButton={networkButton}
+                setShowPhone={setShowPhone}
+                showPhone={showPhone}
+                time={time}
+                turnOnNetwork={turnOnNetwork}
+                turnOffNetwork={turnOffNetwork}
+            />
         </div>
     )
 }

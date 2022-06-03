@@ -1,6 +1,7 @@
 import { StyleSheet } from "aphrodite";
 import RoomBackView from '../images/roombackview.jpg'
 import RoomMainView from '../images/roommainview.jpg'
+import Phone from '../images/phone.png';
 
 export const GameStyles = StyleSheet.create({
     text:{
@@ -19,6 +20,7 @@ export const GameStyles = StyleSheet.create({
     },
     backView:{
         backgroundImage: `url(${RoomBackView})`,
+        zIndex:"3",
     },
     mainView:{
         backgroundImage: `url(${RoomMainView})`,
@@ -42,6 +44,8 @@ export const GameStyles = StyleSheet.create({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        fontFamily:"Arial",
+        flexDirection:"column",
     },
     computerTopbar:{
         position: "absolute",
@@ -51,6 +55,14 @@ export const GameStyles = StyleSheet.create({
         padding:"10px",
         display: 'flex',
         justifyContent: 'space-between',
+    },
+    computerCoreInfo:{
+        display: 'flex',
+    },
+    wifiIcon:{
+        width:"18px",
+        height:"15px",
+        marginLeft:"10px"
     },
     computerDownload:{
         textAlign:"center",
@@ -65,6 +77,9 @@ export const GameStyles = StyleSheet.create({
     contentHide:{
         display: 'none',
     },
+    quizSection:{
+        width:"60%",
+    },  
     quizOptions:{
         textAlign:"center",
         display:"grid",
@@ -78,5 +93,46 @@ export const GameStyles = StyleSheet.create({
         backgroundColor:"lightgrey",
         fontSize:"18px",
         margin:"10px 10px"
+    },
+    nowifiwarning:{
+        textAlign:"center",
+        fontSize:"18px",
+        color:"red",
+        position:"fixed",
+        bottom:"20px",
+        left:"50%",
+        transform:"translateX(-50%)",
+    },  
+    phone:{
+        position:"fixed",
+        top:0,
+        left:0,
+        zIndex:"2",
+        width:"400px",
+        height:"700px",
+        backgroundImage: `url(${Phone})`,
+        backgroundSize: "contain",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        display: 'flex',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        flexDirection: 'column',
+        padding:"30px",
+        transform:"translateY(70%)",
+        transition: "all 0.2s ease-in",
+        fontFamily:"Arial",
+    },
+    hidePhone:{
+        transform:"translateY(100%)"
+    },
+    networkButton:{
+        padding:"10px",
+        border:"none",
+        outline:"none",
+        cursor:"pointer",
+        backgroundColor:"lightgrey",
+        fontSize:"18px",
+        borderRadius:"10px"
     }
 })
