@@ -6,9 +6,11 @@ import Homework from '../data.json'
 import { useNavigate } from "react-router-dom";
 import Wifi from '../images/wifi.png';
 import NoWifi from '../images/nowifi.png';
+import DigitalPress from '../audio/soundeffects/digitalPress.mp3';
 
 export default function Computer(props){
 
+    const [digitalpress] = useState(new Audio(DigitalPress));
     const { savedGame, setSavedGame } = useContext(Context);
     const { enteredComputer, time, network } = props;
     const [subject, setSubject] = useState("")
@@ -57,6 +59,8 @@ export default function Computer(props){
     },[savedGame.night])
 
     const downloadAssignment = () => {
+        digitalpress.currentTime = 0;
+        digitalpress.play();
         if(!network){
             setShowWarning(true)
             setTimeout(() => setShowWarning(false), 1000);
@@ -86,11 +90,15 @@ export default function Computer(props){
     }
 
     const takeQuiz = () => {
+        digitalpress.currentTime = 0;
+        digitalpress.play();
         downloadSection.current.style.display = "none";
         quizSection.current.style.display = "block";
     }
 
     const nextQuestion = (e) => {
+        digitalpress.currentTime = 0;
+        digitalpress.play();
         if(!network){
             setShowWarning(true)
             setTimeout(() => setShowWarning(false), 1000);
@@ -116,6 +124,8 @@ export default function Computer(props){
     }
 
     const submitAssignment = () => {
+        digitalpress.currentTime = 0;
+        digitalpress.play();
         if(!network){
             setShowWarning(true)
             setTimeout(() => setShowWarning(false), 1000);
@@ -156,6 +166,8 @@ export default function Computer(props){
     }
 
     const shutdown = () => {
+        digitalpress.currentTime = 0;
+        digitalpress.play();
         navigate("/nightcomplete")
     }
 

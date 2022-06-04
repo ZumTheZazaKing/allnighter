@@ -5,9 +5,11 @@ import Computer from "./Computer";
 import ComputerFan from '../audio/noises/computerfan.mp3';
 import { useNavigate } from "react-router-dom";
 import Phone from "../components/Phone";
+import DigitalPress from '../audio/soundeffects/digitalPress.mp3';
 
 export const Game = () => {
 
+    const [digitalpress] = useState(new Audio(DigitalPress));
     const [computerfan] = useState(new Audio(ComputerFan));
     const [lookback, setLookBack] = useState(false)
     const [enteredComputer, setEnteredComputer] = useState(false)
@@ -67,10 +69,12 @@ export const Game = () => {
     }
 
     const turnOnNetwork = () => {
+        digitalpress.currentTime = 0;
+        digitalpress.play();
         networkButton.current.disabled = true;
         const turningOn = setInterval(() => {
             setNetworkProgress(networkProgresss => networkProgresss + 1)
-        },150)
+       },150)
         const done = setTimeout(() => {
             clearInterval(turningOn)
             clearTimeout(done)
@@ -86,6 +90,8 @@ export const Game = () => {
     }
 
     const turnOffNetwork = () => {
+        digitalpress.currentTime = 0;
+        digitalpress.play();
         setNetwork(false)
         setNetworkProgress(0)
     }
@@ -95,7 +101,6 @@ export const Game = () => {
         <div>
             <div className={css([GameStyles.container, GameStyles.backView, lookback ? "" : GameStyles.hide])}></div>
             <div onClick={enterComputer} className={css([GameStyles.container, GameStyles.mainView, lookback ? GameStyles.hide : ""])}></div>
-            <Computer network={network} time={time} enteredComputer={enteredComputer}/>
             <Phone 
                 networkProgress={networkProgress}
                 network={network}
@@ -106,6 +111,8 @@ export const Game = () => {
                 turnOnNetwork={turnOnNetwork}
                 turnOffNetwork={turnOffNetwork}
             />
+            <Computer network={network} time={time} enteredComputer={enteredComputer}/>
+            
         </div>
     )
 }

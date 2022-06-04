@@ -124,7 +124,7 @@ export const GameStyles = StyleSheet.create({
         fontFamily:"Arial",
     },
     hidePhone:{
-        transform:"translateY(100%)"
+        transform:"translateY(90%)"
     },
     networkButton:{
         padding:"10px",

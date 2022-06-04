@@ -7,7 +7,7 @@ export default function Phone(props){
 
     return (
         <div onMouseOver={() => setShowPhone(true)} onMouseOut={() => setShowPhone(false)} className={css([GameStyles.phone, showPhone ? "" : GameStyles.hidePhone])}>
-            <p>{time}:00 AM</p>
+            <p>{time === 0 ? 12 : time}:00 AM</p>
             <br/>
             <h3>{network ? "Hotspot On" : "Hotspot Off"}</h3>
             <br/>
