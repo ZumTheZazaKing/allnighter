@@ -35,7 +35,7 @@ export const Game = () => {
 
     useEffect(() => {
         const addTime = setInterval(() => {
-            setTime(time => time + 1)
+            setTime(timee => timee + 1)
         },60000)
         return () => {
             clearInterval(addTime)
@@ -69,7 +69,7 @@ export const Game = () => {
     const turnOnNetwork = () => {
         networkButton.current.disabled = true;
         const turningOn = setInterval(() => {
-            setNetworkProgress(networkProgress => networkProgress + 1)
+            setNetworkProgress(networkProgresss => networkProgresss + 1)
         },150)
         const done = setTimeout(() => {
             clearInterval(turningOn)

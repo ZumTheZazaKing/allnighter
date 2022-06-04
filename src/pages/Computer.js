@@ -64,7 +64,7 @@ export default function Computer(props){
         }
         downloadButton.current.disabled = true;
         const downloading = setInterval(() => {
-            setDownloadPercentage(downloadPercentage => downloadPercentage + 1)
+            setDownloadPercentage(downloadPercentagee => downloadPercentagee + 1)
         },300)
         if(!unlucky){
             const done = setTimeout(() => {
@@ -78,7 +78,7 @@ export default function Computer(props){
                 const smugDone = setTimeout(() => {
                     clearTimeout(done)
                     clearTimeout(smugDone)
-                    setDownloadPercentage(downloadPercentage => downloadPercentage + 1)
+                    setDownloadPercentage(downloadPercentagee => downloadPercentagee + 1)
                     downloadButton.current.disabled = false;
                 },15000)
             },29700)
@@ -97,12 +97,12 @@ export default function Computer(props){
             return;
         }
         if(e.target.innerHTML === String(homework[questionIndex].answer)){
-            setRightAnswers(rightAnswers => rightAnswers + 1)
+            setRightAnswers(rightAnswerss => rightAnswerss + 1)
         }
         if(questionIndex < homework.length - 1){
             setProcessing(true)
             setTimeout(() => {
-                setQuestionIndex(questionIndex => questionIndex + 1)
+                setQuestionIndex(questionIndexx => questionIndexx + 1)
                 setProcessing(false)
             },1000)
         }else{
@@ -123,7 +123,7 @@ export default function Computer(props){
         }
         uploadButton.current.disabled = true;
         const uploading = setInterval(() => {
-            setUploadPercentage(uploadPercentage => uploadPercentage + 1)
+            setUploadPercentage(uploadPercentagee => uploadPercentagee + 1)
         },300)
         const done = setTimeout(() => {
             clearInterval(uploading)

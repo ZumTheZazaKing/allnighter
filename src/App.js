@@ -17,7 +17,8 @@ function App() {
   const [savedGame, setSavedGame] = useState(JSON.parse(localStorage.getItem("savedGame")) || null);
 
   useEffect(() => {
-    if(window.innerWidth < 800 || window.innerHeight < 480){
+    if(window.innerWidth < 800 || window.innerHeight < 500 || 
+      window.innerWidth > 1000 || window.innerHeight > 700){
       setSmallScreen(true);
     }
   },[]);

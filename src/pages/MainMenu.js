@@ -10,6 +10,10 @@ export const MainMenu = () => {
     const navigate = useNavigate();
 
     const newGame = () => {
+        if(window.innerWidth < 800 || window.innerHeight < 500 || 
+            window.innerWidth > 1000 || window.innerHeight > 700){
+            return alert("Reload the page");
+        }
         const confirmation = window.confirm("Start a new game?");
         if(!confirmation)return;
 
@@ -28,6 +32,10 @@ export const MainMenu = () => {
     }
 
     const loadGame = () => {
+        if(window.innerWidth < 990 || window.innerHeight < 480 || 
+            window.innerWidth > 1030 || window.innerHeight > 740){
+            return alert("Reload the page");
+        }
         const confirmation = window.confirm(`Continue from Night ${savedGame.night}?`);
         if(!confirmation)return;
 
