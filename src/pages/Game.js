@@ -24,13 +24,11 @@ export const Game = () => {
     useEffect(() => {
         computerfan.currentTime = 0;
         computerfan.play();
-        computerfan.addEventListener('ended', () => {
-            computerfan.currentTime = 0;
-            computerfan.play();
-        })
+        computerfan.loop = true;
         return () => {
             computerfan.pause();
             computerfan.currentTime = 0;
+            computerfan.remove();
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
@@ -71,6 +69,7 @@ export const Game = () => {
     const turnOnNetwork = () => {
         digitalpress.currentTime = 0;
         digitalpress.play();
+        digitalpress.onended = () => {digitalpress.remove()}
         networkButton.current.disabled = true;
         const turningOn = setInterval(() => {
             setNetworkProgress(networkProgresss => networkProgresss + 1)
@@ -92,6 +91,7 @@ export const Game = () => {
     const turnOffNetwork = () => {
         digitalpress.currentTime = 0;
         digitalpress.play();
+        digitalpress.onended = () => {digitalpress.remove()}
         setNetwork(false)
         setNetworkProgress(0)
     }

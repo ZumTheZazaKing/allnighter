@@ -61,6 +61,7 @@ export default function Computer(props){
     const downloadAssignment = () => {
         digitalpress.currentTime = 0;
         digitalpress.play();
+        digitalpress.onended = () => {digitalpress.remove()}
         if(!network){
             setShowWarning(true)
             setTimeout(() => setShowWarning(false), 1000);
@@ -92,6 +93,7 @@ export default function Computer(props){
     const takeQuiz = () => {
         digitalpress.currentTime = 0;
         digitalpress.play();
+        digitalpress.onended = () => {digitalpress.remove()}
         downloadSection.current.style.display = "none";
         quizSection.current.style.display = "block";
     }
@@ -99,6 +101,7 @@ export default function Computer(props){
     const nextQuestion = (e) => {
         digitalpress.currentTime = 0;
         digitalpress.play();
+        digitalpress.onended = () => {digitalpress.remove()}
         if(!network){
             setShowWarning(true)
             setTimeout(() => setShowWarning(false), 1000);
@@ -126,6 +129,7 @@ export default function Computer(props){
     const submitAssignment = () => {
         digitalpress.currentTime = 0;
         digitalpress.play();
+        digitalpress.onended = () => {digitalpress.remove()}
         if(!network){
             setShowWarning(true)
             setTimeout(() => setShowWarning(false), 1000);
@@ -139,29 +143,6 @@ export default function Computer(props){
             clearInterval(uploading)
             clearTimeout(done)
             uploadButton.current.disabled = false;
-            switch(subject){
-                case "math":
-                    setSavedGame({...savedGame, math: savedGame.math + rightAnswers})
-                    localStorage.setItem("savedGame", JSON.stringify({...savedGame, math: savedGame.math + rightAnswers}))
-                    break;
-                case "science":
-                    setSavedGame({...savedGame, science: savedGame.science + rightAnswers})
-                    localStorage.setItem("savedGame", JSON.stringify({...savedGame, science: savedGame.science + rightAnswers}))
-                    break;
-                case "english":
-                    setSavedGame({...savedGame, english: savedGame.english + rightAnswers})
-                    localStorage.setItem("savedGame", JSON.stringify({...savedGame, english: savedGame.english + rightAnswers}))
-                    break;
-                case "history":
-                    setSavedGame({...savedGame, history: savedGame.history + rightAnswers})
-                    localStorage.setItem("savedGame", JSON.stringify({...savedGame, history: savedGame.history + rightAnswers}))
-                    break;
-                case "geography":
-                    setSavedGame({...savedGame, geography: savedGame.geography + rightAnswers})
-                    localStorage.setItem("savedGame", JSON.stringify({...savedGame, geography: savedGame.geography + rightAnswers}))
-                    break;
-                default:return;
-            }
         },30000)
     }
 
@@ -169,6 +150,31 @@ export default function Computer(props){
         digitalpress.currentTime = 0;
         digitalpress.play();
         navigate("/nightcomplete")
+        switch(subject){
+            case "math":
+                setSavedGame({...savedGame, math: savedGame.math + rightAnswers})
+                localStorage.setItem("savedGame", JSON.stringify({...savedGame, math: savedGame.math + rightAnswers}))
+                break;
+            case "science":
+                setSavedGame({...savedGame, science: savedGame.science + rightAnswers})
+                localStorage.setItem("savedGame", JSON.stringify({...savedGame, science: savedGame.science + rightAnswers}))
+                break;
+            case "english":
+                setSavedGame({...savedGame, english: savedGame.english + rightAnswers})
+                localStorage.setItem("savedGame", JSON.stringify({...savedGame, english: savedGame.english + rightAnswers}))
+                break;
+            case "history":
+                setSavedGame({...savedGame, history: savedGame.history + rightAnswers})
+                localStorage.setItem("savedGame", JSON.stringify({...savedGame, history: savedGame.history + rightAnswers}))
+                break;
+            case "geography":
+                setSavedGame({...savedGame, geography: savedGame.geography + rightAnswers})
+                localStorage.setItem("savedGame", JSON.stringify({...savedGame, geography: savedGame.geography + rightAnswers}))
+                break;
+            default:return;
+        }
+        setSavedGame({...savedGame, night: savedGame.night + 1})
+        localStorage.setItem("savedGame", JSON.stringify({...savedGame, night: savedGame.night + 1}))
     }
 
     return(

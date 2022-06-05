@@ -7,7 +7,7 @@ import { useContext } from "react";
 export const NightComplete = () => {
 
     const navigate = useNavigate();
-    const { savedGame, setSavedGame } = useContext(Context);
+    const { savedGame } = useContext(Context);
     let subjectScore;
 
     switch(savedGame.night){
@@ -31,14 +31,10 @@ export const NightComplete = () => {
 
     const nextNight = () => {
         if(savedGame.night === 5)return navigate("/note")
-        setSavedGame({...savedGame, night: savedGame.night + 1})
-        localStorage.setItem("savedGame", JSON.stringify({...savedGame, night: savedGame.night + 1}))
         navigate("/game")
     }
 
     const mainMenu = () => {
-        setSavedGame({...savedGame, night: savedGame.night + 1})
-        localStorage.setItem("savedGame", JSON.stringify({...savedGame, night: savedGame.night + 1}))
         navigate("/")
     }
 

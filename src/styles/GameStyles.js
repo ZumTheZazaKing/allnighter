@@ -119,7 +119,7 @@ export const GameStyles = StyleSheet.create({
         alignItems: 'center',
         flexDirection: 'column',
         padding:"30px",
-        transform:"translateY(70%)",
+        transform:"translateY(60%)",
         transition: "all 0.2s ease-in",
         fontFamily:"Arial",
     },
@@ -134,5 +134,32 @@ export const GameStyles = StyleSheet.create({
         backgroundColor:"lightgrey",
         fontSize:"18px",
         borderRadius:"10px"
+    },
+    callBox:{
+        width:"80%",
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        padding:"10px",
+        borderRadius:"10px",
+        backgroundColor:"rgba(0,0,0,0.5)",
+        backdropFilter: "blur(10px)",
+        color:"white"
+    },
+    callButtons:{
+        display: 'flex',
+        alignContent: 'center',
+        cursor:"pointer",
+    },
+    callButton:{
+        padding:"5px 10px",
+        border:"none",
+        outline:"none",
+        color:"white",
+        fontSize:"18px",
+        borderRadius:"10px",
+    },
+    hidden:{
+        visibility:"hidden",
     }
 })
