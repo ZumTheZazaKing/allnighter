@@ -19,6 +19,7 @@ export const Game = () => {
     const [networkProgress, setNetworkProgress] = useState(0);
     const navigate = useNavigate();
     const [showPhone, setShowPhone] = useState(false);
+    const [power, setPower] = useState(true)
 
     const [showProwler, setShowProwler] = useState(false);
     
@@ -58,6 +59,12 @@ export const Game = () => {
         }
         if(e.key === "r"){
             setEnteredComputer(false)
+        }
+        if(e.key === "f"){
+            if(!lookback)return;
+            setLookBack(false)
+            if(power)return setPower(false)
+            if(!power)return setPower(true)
         }
     })
     document.addEventListener("keyup", () => {
@@ -102,8 +109,21 @@ export const Game = () => {
 
     return(
         <div>
-            <div className={css([GameStyles.container, GameStyles.backView, lookback ? "" : GameStyles.hide])}></div>
-            <div onClick={enterComputer} className={css([GameStyles.container, GameStyles.mainView, lookback ? GameStyles.hide : ""])}></div>
+            <div 
+                className={css([
+                    GameStyles.container, 
+                    power ? GameStyles.backView : "", 
+                    lookback ? "" : GameStyles.hide
+                ])}>
+            </div>
+            <div 
+                onClick={power ? enterComputer :() => {return}} 
+                className={css([
+                    GameStyles.container, 
+                    power ? GameStyles.mainView : "", 
+                    lookback ? GameStyles.hide : ""
+                ])}>
+            </div>
             <Phone 
                 networkProgress={networkProgress}
                 network={network}

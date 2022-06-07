@@ -184,7 +184,8 @@ export default function Computer(props){
                     <h4>{time === 0 ? "12" : time}:00 AM</h4>
                     <img className={css(GameStyles.wifiIcon)} alt="" src={network ? Wifi : NoWifi}/>
                 </div>
-                {savedGame.night === 1 ? <p>Hold Q to look BEHIND YOU, Press R to Exit Computer</p> : ""}
+                {savedGame.night === 1 ? <p>Hold Q to look BEHIND YOU, Press R to Exit Computer</p> 
+                : (savedGame.night === 2 ? <p>Turn around and Press F to toggle the power switch</p> : "")}
             </div>
 
             <div ref={downloadSection} className={css(GameStyles.computerDownload)}>
