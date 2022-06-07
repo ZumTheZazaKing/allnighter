@@ -6,7 +6,7 @@ export default function SmallScreen(){
         <div className={css(LoadingStyles.container)}>
             <h1>Screen size must be:
             <br/><br/>
-            Minimum (800px x 660px)
+            Minimum (800px x 600px)
             <br/>
             or<br/>
             Maximum (1000px x 700px)
