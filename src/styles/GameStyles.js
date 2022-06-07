@@ -1,7 +1,6 @@
 import { StyleSheet } from "aphrodite";
 import RoomBackView from '../images/roombackview.jpg'
 import RoomMainView from '../images/roommainview.jpg'
-import Phone from '../images/phone.png';
 
 export const GameStyles = StyleSheet.create({
     text:{
@@ -52,6 +51,7 @@ export const GameStyles = StyleSheet.create({
         top:0,
         left:0,
         width:"100vw",
+        height:"10vh",
         padding:"10px",
         display: 'flex',
         justifyContent: 'space-between',
@@ -102,62 +102,18 @@ export const GameStyles = StyleSheet.create({
         bottom:"20px",
         left:"50%",
         transform:"translateX(-50%)",
-    },  
-    phone:{
-        position:"fixed",
-        top:0,
-        left:0,
-        zIndex:"2",
-        width:"400px",
-        height:"700px",
-        backgroundImage: `url(${Phone})`,
-        backgroundSize: "contain",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
+    },
+    computerSettings:{
+        zIndex: "3",
+        width:"100%",
+        height:"90vh",
+        backgroundColor:"whitesmoke",
         display: 'flex',
-        justifyContent: 'flex-start',
+        justifyContent: 'center',
         alignItems: 'center',
-        flexDirection: 'column',
-        padding:"30px",
-        transform:"translateY(60%)",
-        transition: "all 0.2s ease-in",
         fontFamily:"Arial",
-    },
-    hidePhone:{
-        transform:"translateY(90%)"
-    },
-    networkButton:{
-        padding:"10px",
-        border:"none",
-        outline:"none",
-        cursor:"pointer",
-        backgroundColor:"lightgrey",
-        fontSize:"18px",
-        borderRadius:"10px"
-    },
-    callBox:{
-        width:"80%",
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        padding:"10px",
-        borderRadius:"10px",
-        backgroundColor:"rgba(0,0,0,0.5)",
-        backdropFilter: "blur(10px)",
-        color:"white"
-    },
-    callButtons:{
-        display: 'flex',
-        alignContent: 'center',
-        cursor:"pointer",
-    },
-    callButton:{
-        padding:"5px 10px",
-        border:"none",
-        outline:"none",
-        color:"white",
-        fontSize:"18px",
-        borderRadius:"10px",
+        flexDirection:"column",
+
     },
     hidden:{
         visibility:"hidden",
