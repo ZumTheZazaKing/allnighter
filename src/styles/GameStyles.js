@@ -120,7 +120,6 @@ export const GameStyles = StyleSheet.create({
         flexDirection: 'column',
         padding:"30px",
         transform:"translateY(60%)",
-        transition: "all 0.2s ease-in",
         fontFamily:"Arial",
     },
     hidePhone:{

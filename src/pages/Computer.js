@@ -108,12 +108,12 @@ export default function Computer(props){
             return;
         }
         if(e.target.innerHTML === String(homework[questionIndex].answer)){
-            setRightAnswers(rightAnswerss => rightAnswerss + 1)
+            setRightAnswers(rightAnswers => rightAnswers + 1)
         }
         if(questionIndex < homework.length - 1){
             setProcessing(true)
             setTimeout(() => {
-                setQuestionIndex(questionIndexx => questionIndexx + 1)
+                setQuestionIndex(questionIndex => questionIndex + 1)
                 setProcessing(false)
             },1000)
         }else{
@@ -149,32 +149,32 @@ export default function Computer(props){
     const shutdown = () => {
         digitalpress.currentTime = 0;
         digitalpress.play();
-        navigate("/nightcomplete")
+        
         switch(subject){
             case "math":
-                setSavedGame({...savedGame, math: savedGame.math + rightAnswers})
-                localStorage.setItem("savedGame", JSON.stringify({...savedGame, math: savedGame.math + rightAnswers}))
+                setSavedGame({...savedGame, night: savedGame.night + 1, math: savedGame.math + rightAnswers})
+                localStorage.setItem("savedGame", JSON.stringify({...savedGame, night: savedGame.night + 1, math: savedGame.math + rightAnswers}))   
                 break;
             case "science":
-                setSavedGame({...savedGame, science: savedGame.science + rightAnswers})
-                localStorage.setItem("savedGame", JSON.stringify({...savedGame, science: savedGame.science + rightAnswers}))
+                setSavedGame({...savedGame, night: savedGame.night + 1, science: savedGame.science + rightAnswers})
+                localStorage.setItem("savedGame", JSON.stringify({...savedGame, night: savedGame.night + 1, science: savedGame.science + rightAnswers}))
                 break;
             case "english":
-                setSavedGame({...savedGame, english: savedGame.english + rightAnswers})
-                localStorage.setItem("savedGame", JSON.stringify({...savedGame, english: savedGame.english + rightAnswers}))
+                setSavedGame({...savedGame, night: savedGame.night + 1, english: savedGame.english + rightAnswers})
+                localStorage.setItem("savedGame", JSON.stringify({...savedGame, night: savedGame.night + 1, english: savedGame.english + rightAnswers}))
                 break;
             case "history":
-                setSavedGame({...savedGame, history: savedGame.history + rightAnswers})
-                localStorage.setItem("savedGame", JSON.stringify({...savedGame, history: savedGame.history + rightAnswers}))
+                setSavedGame({...savedGame, night: savedGame.night + 1, history: savedGame.history + rightAnswers})
+                localStorage.setItem("savedGame", JSON.stringify({...savedGame, night: savedGame.night + 1, history: savedGame.history + rightAnswers}))
                 break;
             case "geography":
-                setSavedGame({...savedGame, geography: savedGame.geography + rightAnswers})
-                localStorage.setItem("savedGame", JSON.stringify({...savedGame, geography: savedGame.geography + rightAnswers}))
+                setSavedGame({...savedGame, night: savedGame.night + 1, geography: savedGame.geography + rightAnswers})
+                localStorage.setItem("savedGame", JSON.stringify({...savedGame, night: savedGame.night + 1, geography: savedGame.geography + rightAnswers}))
                 break;
             default:return;
         }
-        setSavedGame({...savedGame, night: savedGame.night + 1})
-        localStorage.setItem("savedGame", JSON.stringify({...savedGame, night: savedGame.night + 1}))
+        console.log(savedGame);
+        navigate(`/nightcomplete/${rightAnswers}`);
     }
 
     return(

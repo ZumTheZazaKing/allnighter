@@ -35,7 +35,7 @@ function App() {
               <Route path="/" element={<MainMenu />} />
               <Route path="/intro" element={<Introduction />} />
               <Route path="/game" element={<Game />} />
-              <Route path="/nightcomplete" element={<NightComplete />} />
+              <Route path="/nightcomplete/:score" element={<NightComplete />} />
               <Route path="/note" element={<Note />} />
               <Route path="/gameover" element={<GameOver />} />
 
