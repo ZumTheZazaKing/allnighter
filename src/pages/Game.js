@@ -14,7 +14,7 @@ export const Game = () => {
     const [lookback, setLookBack] = useState(false)
     const [enteredComputer, setEnteredComputer] = useState(false)
     const [time, setTime] = useState(0)
-    const [network, setNetwork] = useState(false);
+    const [network, setNetwork] = useState(true);
     const [networkProgress, setNetworkProgress] = useState(0);
     const navigate = useNavigate();
     const [showPhone, setShowPhone] = useState(false);
@@ -101,16 +101,6 @@ export const Game = () => {
         <div>
             <div className={css([GameStyles.container, GameStyles.backView, lookback ? "" : GameStyles.hide])}></div>
             <div onClick={enterComputer} className={css([GameStyles.container, GameStyles.mainView, lookback ? GameStyles.hide : ""])}></div>
-            <Phone 
-                networkProgress={networkProgress}
-                network={network}
-                networkButton={networkButton}
-                setShowPhone={setShowPhone}
-                showPhone={showPhone}
-                time={time}
-                turnOnNetwork={turnOnNetwork}
-                turnOffNetwork={turnOffNetwork}
-            />
             <Computer network={network} time={time} enteredComputer={enteredComputer}/>
             
         </div>
