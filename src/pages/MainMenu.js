@@ -10,7 +10,7 @@ export const MainMenu = () => {
     const navigate = useNavigate();
 
     const newGame = () => {
-        if(window.innerWidth < 800 || window.innerHeight < 600 || 
+        if(window.innerWidth < 800 || window.innerHeight < 660 || 
             window.innerWidth > 1000 || window.innerHeight > 700){
             return alert("Reload the page");
         }
@@ -32,7 +32,7 @@ export const MainMenu = () => {
     }
 
     const loadGame = () => {
-        if(window.innerWidth < 800 || window.innerHeight < 600 || 
+        if(window.innerWidth < 800 || window.innerHeight < 660 || 
             window.innerWidth > 1000 || window.innerHeight > 700){
             return alert("Reload the page");
         }
