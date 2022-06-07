@@ -7,13 +7,12 @@ import { useNavigate } from "react-router-dom";
 import Wifi from '../images/wifi.png';
 import NoWifi from '../images/nowifi.png';
 import DigitalPress from '../audio/soundeffects/digitalPress.mp3';
-import ComputerSettings from "../components/ComputerSettings";
 
 export default function Computer(props){
 
     const [digitalpress] = useState(new Audio(DigitalPress));
     const { savedGame, setSavedGame } = useContext(Context);
-    const { enteredComputer, time, network, setShowPhone, showPhone, networkProgress, networkButton, turnOnNetwork, turnOffNetwork } = props;
+    const { enteredComputer, time, network } = props;
     const [subject, setSubject] = useState("")
     const [homework, setHomework] = useState(null)
     const [downloadPercentage, setDownloadPercentage] = useState(null)
@@ -184,25 +183,11 @@ export default function Computer(props){
                 <div className={css(GameStyles.computerCoreInfo)}>
                     <h4>{time === 0 ? "12" : time}:00 AM</h4>
                     <img className={css(GameStyles.wifiIcon)} alt="" src={network ? Wifi : NoWifi}/>
-                    <button onClick={() => {setShowPhone(true)}}>Settings</button>
                 </div>
-                
                 {savedGame.night === 1 ? <p>Hold Q to look BEHIND YOU, Press R to Exit Computer</p> : ""}
             </div>
 
-            { showPhone ? 
-            <ComputerSettings 
-                setShowPhone={setShowPhone} 
-                networkProgress={networkProgress} 
-                networkButton={networkButton}
-                turnOffNetwork={turnOffNetwork} 
-                turnOnNetwork={turnOnNetwork}
-                network={network}
-            /> 
-            :
-            (<div><div ref={downloadSection} className={css(GameStyles.computerDownload)}>
-                
-
+            <div ref={downloadSection} className={css(GameStyles.computerDownload)}>
                 <h3>Download {subject.charAt(0).toUpperCase() + subject.slice(1)} Assignment</h3>
                 <br/>
                 {downloadPercentage === 100 ?
@@ -236,8 +221,7 @@ export default function Computer(props){
             <div className={css([GameStyles.nowifiwarning, showWarning ? "" : GameStyles.contentHide])}>
                 <br/>
                 NO CONNECTION
-            </div></div>)}
-
+            </div>
 
         </div>
     )

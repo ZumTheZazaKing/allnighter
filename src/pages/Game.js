@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Computer from "./Computer";
 import ComputerFan from '../audio/noises/computerfan.mp3';
 import { useNavigate } from "react-router-dom";
+import Phone from "../components/Phone";
 import DigitalPress from '../audio/soundeffects/digitalPress.mp3';
 
 export const Game = () => {
@@ -13,7 +14,7 @@ export const Game = () => {
     const [lookback, setLookBack] = useState(false)
     const [enteredComputer, setEnteredComputer] = useState(false)
     const [time, setTime] = useState(0)
-    const [network, setNetwork] = useState(false);
+    const [network, setNetwork] = useState(true);
     const [networkProgress, setNetworkProgress] = useState(0);
     const navigate = useNavigate();
     const [showPhone, setShowPhone] = useState(false);
@@ -100,17 +101,8 @@ export const Game = () => {
         <div>
             <div className={css([GameStyles.container, GameStyles.backView, lookback ? "" : GameStyles.hide])}></div>
             <div onClick={enterComputer} className={css([GameStyles.container, GameStyles.mainView, lookback ? GameStyles.hide : ""])}></div>
-            <Computer 
-                showPhone={showPhone} 
-                network={network} 
-                time={time} 
-                enteredComputer={enteredComputer} 
-                setShowPhone={setShowPhone}
-                networkProgress={networkProgress}
-                turnOnNetwork={turnOnNetwork}
-                turnOffNetwork={turnOffNetwork}
-                networkButton={networkButton}
-            />
+            <Computer network={network} time={time} enteredComputer={enteredComputer}/>
+            
         </div>
     )
 }
