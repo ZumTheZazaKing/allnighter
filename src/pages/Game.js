@@ -1,12 +1,17 @@
 import { css } from "aphrodite"
 import { GameStyles } from "../styles/GameStyles"
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
 import Computer from "./Computer";
 import ComputerFan from '../audio/noises/computerfan.mp3';
 import { useNavigate } from "react-router-dom";
 import Phone from "../components/Phone";
 import DigitalPress from '../audio/soundeffects/digitalPress.mp3';
 import Prowler from "../components/Jumpscares/Prowler";
+import { Context } from "../Context";
+
+import GlassBreak from '../audio/noises/glassbreak.mp3';
+import Footsteps from '../audio/noises/footsteps.mp3';
+import DoorCreak from '../audio/noises/doorcreak.mp3';
 
 export const Game = () => {
 
@@ -21,7 +26,14 @@ export const Game = () => {
     const [showPhone, setShowPhone] = useState(false);
     const [power, setPower] = useState(true)
 
+    const [glass_break] = useState(new Audio(GlassBreak));
+    const [footsteps] = useState(new Audio(Footsteps))
+    const [doorcreak] = useState(new Audio(DoorCreak))
+
+    const { savedGame } = useContext(Context);
+
     const [showProwler, setShowProwler] = useState(false);
+    const [prowlerPresent, setProwlerPresent] = useState(false);
     
     const networkButton = useRef();
 
@@ -52,6 +64,43 @@ export const Game = () => {
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[time])
+
+    //Prowler's cycle
+    useEffect(() => {
+        if(savedGame.night === 1)return;
+        const prowlerEntered = setTimeout(() => {
+            glass_break.currentTime = 0;
+            glass_break.play();
+            glass_break.onended = () => {
+                glass_break.remove();
+                setProwlerPresent(true);
+                clearTimeout(prowlerEntered);
+            }
+        },60000)
+        if(prowlerPresent){
+            const prowlerComing = setInterval(() => {
+                footsteps.currentTime = 0;
+                footsteps.play();
+                footsteps.onended = () => {
+                    footsteps.remove();
+                    doorcreak.currentTime = 0;
+                    doorcreak.play();
+                    doorcreak.onended = () => {
+                        doorcreak.remove();
+                        const prowlerCheck = setTimeout(() => {
+                            if(power){
+                                setShowProwler(true);
+                                setLookBack(true);
+                                setEnteredComputer(false);
+                                clearTimeout(prowlerCheck);
+                                clearTimeout(prowlerComing);
+                            }
+                        },5000)
+                    }
+                }
+            },Math.floor(Math.random()*180000))
+        }
+    },[])
 
     document.addEventListener("keydown", (e) => {
         if(e.key === "q"){
