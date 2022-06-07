@@ -6,6 +6,7 @@ import ComputerFan from '../audio/noises/computerfan.mp3';
 import { useNavigate } from "react-router-dom";
 import Phone from "../components/Phone";
 import DigitalPress from '../audio/soundeffects/digitalPress.mp3';
+import Prowler from "../components/Jumpscares/Prowler";
 
 export const Game = () => {
 
@@ -18,6 +19,8 @@ export const Game = () => {
     const [networkProgress, setNetworkProgress] = useState(0);
     const navigate = useNavigate();
     const [showPhone, setShowPhone] = useState(false);
+
+    const [showProwler, setShowProwler] = useState(false);
     
     const networkButton = useRef();
 
@@ -112,7 +115,7 @@ export const Game = () => {
                 turnOffNetwork={turnOffNetwork}
             />
             <Computer network={network} time={time} enteredComputer={enteredComputer}/>
-            
+            <Prowler showProwler={showProwler} setShowProwler={setShowProwler}/>
         </div>
     )
 }

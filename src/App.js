@@ -10,6 +10,7 @@ const Game = lazy(() => import('./pages/Game').then(module => ({ default: module
 const NightComplete = lazy(() => import('./pages/NightComplete').then(module => ({ default: module.NightComplete })));
 const Note = lazy((() => import('./pages/Note').then(module => ({ default: module.Note }))));
 const GameOver = lazy(() => import('./pages/GameOver').then(module => ({ default: module.GameOver })));
+const Jumpscares = lazy(() => import('./pages/Jumpscares').then(module => ({ default: module.Jumpscares })));
 
 function App() {
 
@@ -37,7 +38,8 @@ function App() {
               <Route path="/game" element={<Game />} />
               <Route path="/nightcomplete/:score" element={<NightComplete />} />
               <Route path="/note" element={<Note />} />
-              <Route path="/gameover" element={<GameOver />} />
+              <Route path="/gameover/:cause" element={<GameOver />} />
+              <Route path="/jumpscares" element={<Jumpscares />} />
 
             </Routes>
           </Suspense>
